@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>Score Keeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="/mini-projects/index.html" id="home-button"></a>
+
+    <div class="app-cont">
+        <div class="img-cont">
+            <img src="util/TrophyIMG.png" alt="">
+        </div>
+        <div class="title-cont">
+            <h2>Score Keeper</h2>
+        </div>
+        <hr class="rule">
+        <main>
+            <div class="score">
+                    <div class="score-cont">
+                        <span>player 1</span>
+                        <span id="playerOneScore" class="tie">0</span>
+                    </div>
+                   <h1 >To</h1>
+                    <div  class="score-cont">
+                        <span>player 2</span>
+                        <span id="playerTwoScore" class="tie">0</span>
+                    </div>
+            </div>
+            <h4 class="guideLines">Use the buttons below to keep score.</h4>
+
+
+            <hr class="rule">
+
+            <label for="winningScore">Winning Score :</label>
+            <select id="winningScore">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6" selected>6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+            </select>
+            <div class="buttons-cont">
+
+
+                <a href="#" id="control1" class="controllers animated-button8">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    +1 Player One
+                </a>
+                <a href="#" id="control2" class="controllers animated-button5">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    +1 Player Two
+                </a>
+                <a href="#" id="reset" class="controllers animated-button1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Reset
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="app.js"></script>
+
+</html>

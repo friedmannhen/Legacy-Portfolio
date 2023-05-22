@@ -1,0 +1,10 @@
+img {
+  box-shadow: 1px 1px 5px #023047;
+  border-radius: 1em;
+  transition: transform 0.5s, box-shadow 0.5s;
+  margin: 15px;
+}
+img:hover {
+  transform: rotatez(5deg) scale(1.15);
+  box-shadow: 10px 5px 20px #023047;
+}
