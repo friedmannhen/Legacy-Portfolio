@@ -2,13 +2,14 @@
 var pickedNumbers = [];
 var MaxNumber = 0;
 var numberDisplay = document.getElementById("number-display");
+var drums = document.getElementById("audioDrums");
+var pop = document.getElementById("audioPop");
 
 var roll = document.querySelector("#buzzer");
 roll.classList.add("roll-btn-hide");
 function startGame() {
   MaxNumber = document.getElementById("max").value;
   for (let i = 1; i < parseInt(MaxNumber) + 1; i++) {
-    console.log(i);
     var numberList = document.getElementById("number-list");
     var numberElement = document.createElement("div");
     numberElement.className = "number";
@@ -19,7 +20,6 @@ function startGame() {
   roll.classList.remove("roll-btn-hide");
   roll.classList.add("roll-btn-show");
 }
-
 // Generate a random number between 1 and MaxNumber
 function generateRandomNumber() {
   return Math.floor(Math.random() * MaxNumber) + 1;
@@ -27,6 +27,7 @@ function generateRandomNumber() {
 
 // Generate a new number and display it
 function generateNumber() {
+  drums.play();
   roll.classList.remove("roll-btn-show");
   roll.classList.add("roll-btn-hide");
   numberDisplay.classList.add("show");
@@ -51,7 +52,6 @@ function generateNumber() {
     // Display the number
     numberDisplay.textContent = number;
   }, 70); // Display a new number every x second
-
   // Stop displaying random numbers after 5 seconds
   setTimeout(function () {
     clearInterval(interval);
@@ -79,6 +79,7 @@ function generateNumber() {
     roll.classList.remove("roll-btn-hide");
     roll.classList.add("roll-btn-show");
     numberDisplay.classList.remove("show");
+    pop.play();
   }, 5000);
 }
 
