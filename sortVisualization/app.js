@@ -184,6 +184,27 @@ async function SelectionSortRevertV2() {
 
 
 // sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+function SetDescription() {
+    document.querySelectorz('#sortType').value
+    document.querySelectorAll('.desc')
+    //need to make it work.....
+    //need to make it work.....
+    //need to make it work.....
+    //need to make it work.....
+    //need to make it work.....
+}
+
+
+
+function setDisplay(elem) {
+    console.log(elem.display);
+    if (getComputedStyle(elem).display == "block")
+        elem.setAttribute('style', `display:none`);
+    else
+        elem.setAttribute('style', `display:block`);
+
+
+}
 async function done() {
     for (let j = 0; j < array.length; j++) {
         bars[j].classList.add('done');
