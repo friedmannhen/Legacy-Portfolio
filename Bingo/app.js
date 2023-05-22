@@ -123,7 +123,6 @@ document.addEventListener('mousemove', function (event) {
   kinet.animate('y', event.clientY - window.innerHeight/2-20);
 });
 
-<<<<<<< HEAD
 // var mutebtn = document.getElementById("mute");
 // function mute() {
 //   drums.mute = !drums.mute;
@@ -135,5 +134,3 @@ document.addEventListener('mousemove', function (event) {
 //     btn.innerHTML = '<i class="fa-solid fa-video-slash "></i>';
 //   }
 // }
-=======
->>>>>>> parent of 08347c5 (added sound)
