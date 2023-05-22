@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HF's Projects</title>
+  <script src="https://kit.fontawesome.com/c6ebfc089c.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="https://iconape.com/wp-content/files/wa/66713/svg/hf.svg" />
+  <link rel="stylesheet" href="app.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- <h1>Hen Friedmann</h1> -->
+  <video autoplay muted loop playsinline id="myVideo" src="BckgrdVid.mp4"></video>
+  <nav>
+    <a href="Photo-portfolio/index.html">
+      Photo-portfolio | <i class="fa-brands fa-html5 fa-beat"></i>
+      <i class="fa-brands fa-css3 fa-beat"></i>
+    </a>
+    <a href="PriceTable/index.html ">Pricing Panel | <i class="fa-brands fa-html5 fa-beat"></i>
+      <i class="fa-brands fa-css3 fa-beat"></i>
+    </a>
+    <a href="Candy_Museum/index.html">Museum Of Candy | <i class="fa-brands fa-html5 fa-beat"></i>
+      <i class="fa-brands fa-css3 fa-beat"></i>
+      <i class="fa-brands fa-bootstrap fa-beat"></i>
+    </a>
+    <a href="sortVisualization/index.html">Sort Visualisation | <i class="fa-brands fa-html5 fa-beat"></i>
+      <i class="fa-brands fa-css3 fa-beat"></i>
+      <i class="fa-brands fa-js fa-beat"></i>
+    </a>
+    <a href="Score Keeper/index.html">Score Keeper | <i class="fa-brands fa-html5 fa-beat"></i>
+      <i class="fa-brands fa-css3 fa-beat"></i>
+      <i class="fa-brands fa-js fa-beat"></i>
+    </a>
+
+
+    <a href="Trollolo/index.html">OnlyFans</a>
+    <a href="https://letmegooglethat.com/?q=Nicolas+cage">Looking For Insparation?</a>
+  </nav>
+  <button id="myBtn" onclick="myFunction()">
+    Pause | <i class="fa-solid fa-video"></i>
+  </button>
+</body>
+<script>
+  // Get the video
+  var video = document.getElementById("myVideo");
+
+  // Get the button
+  var btn = document.getElementById("myBtn");
+
+  // Pause and play the video, and change the button text
+  function myFunction() {
+    if (video.paused) {
+      video.play();
+      btn.innerHTML = 'Pause | <i class="fa-solid fa-video "></i>';
+    } else {
+      video.pause();
+      btn.innerHTML = 'Play | <i class="fa-solid fa-video-slash "></i>';
+    }
+  }
+</script>
+
+</html>
