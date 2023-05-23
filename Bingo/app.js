@@ -28,7 +28,7 @@ function generateRandomNumber() {
 // Generate a new number and display it
 function generateNumber() {
   drums.play();
-  roll.src = "images/thumbnail_PRESSED.png";
+  roll.src = "images/BTNPRESSED.png";
   document.querySelector("*").style.cursor = "wait";
   // roll.classList.remove("roll-btn-show");
   // roll.classList.add("roll-btn-hide");
@@ -81,7 +81,7 @@ function generateNumber() {
     roll.classList.add("roll-btn-show");
     numberDisplay.classList.remove("show");
     pop.play();
-    roll.src = "images/thumbnail_REALESED.png";
+    roll.src = "images/BTN.png";
 
     document.querySelector("*").style.cursor = "default";
   }, 5000);
