@@ -162,6 +162,7 @@ body {
   width: fit-content;
   font-size: 17vw;
   font-weight: bold;
+  -webkit-text-stroke: 3px black;
   color: #10478c;
   /* background-color: #ffe00f;
   border-radius: 50%;
