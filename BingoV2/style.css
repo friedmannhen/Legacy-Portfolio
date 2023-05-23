@@ -163,7 +163,8 @@ body {
   font-size: 17vw;
   font-weight: bold;
   -webkit-text-stroke: 3px black;
-  color: #10478c;
+  text-shadow: 5px 8px 3px #fff;
+  color: #0056bf;
   /* background-color: #ffe00f;
   border-radius: 50%;
   border: 2px solid #10478c;
