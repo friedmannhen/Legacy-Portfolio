@@ -91,14 +91,7 @@ body {
   background-color: greenyellow;
 }
 
-.roll-btn-show {
-  transform: translateY(0px);
-  transition: 0.5s ease-in-out;
-}
-.roll-btn-hide {
-  transform: translateY(-200px) scale(0);
-  transition: 0.5s ease-in-out;
-}
+
 .top-cont {
   display: flex;
   justify-content: space-between;
@@ -131,19 +124,32 @@ button {
 }
 .numAndBut{
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 #buzzer {
-  margin-top: 20px;
-  width: 100px;
-  height: 100px;
+  position: absolute;
+  aspect-ratio: 1/1;
+  bottom: -60px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   cursor: pointer;
+  box-shadow:red 0px 0px 20px
+
 }
 #buzzer:hover {
-  box-shadow:red 0px 0px 20px
+  box-shadow:red 0px 0px 50px
+}
+.roll-btn-show {
+  /* transform: translateY(200px); */
+  transition: 0.5s ease-in-out;
+}
+.roll-btn-hide {
+  transform: translateY(-200px) scale(0);
+  transition: 0.5s ease-in-out;
 }
 #mute{
   position: fixed;
@@ -165,8 +171,8 @@ color: #ffe00f;
   align-items: center;
 
   position: absolute;
-  left: 50px;
-  bottom: 50px;
+  left: 80px;
+  bottom: 80px;
 }
 #max {
   width: 150px;

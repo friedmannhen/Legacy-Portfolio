@@ -28,9 +28,10 @@ function generateRandomNumber() {
 // Generate a new number and display it
 function generateNumber() {
   drums.play();
+  roll.src = "images/thumbnail_PRESSED.png";
   document.querySelector("*").style.cursor = "wait";
-  roll.classList.remove("roll-btn-show");
-  roll.classList.add("roll-btn-hide");
+  // roll.classList.remove("roll-btn-show");
+  // roll.classList.add("roll-btn-hide");
   numberDisplay.classList.add("show");
   document.querySelector(".reset").disabled = true;
   // Check if all numbers have been picked
@@ -80,8 +81,9 @@ function generateNumber() {
     roll.classList.add("roll-btn-show");
     numberDisplay.classList.remove("show");
     pop.play();
-  document.querySelector("*").style.cursor = "default";
+    roll.src = "images/thumbnail_REALESED.png";
 
+    document.querySelector("*").style.cursor = "default";
   }, 5000);
 }
 
@@ -131,8 +133,8 @@ document.addEventListener("mousemove", function (event) {
 
 var mutebtn = document.getElementById("mute");
 function mute() {
-  drums.muted =  !(drums.muted)
-  pop.muted = !(pop.muted)
+  drums.muted = !drums.muted;
+  pop.muted = !pop.muted;
 
   if (drums.muted && pop.muted) {
     mutebtn.classList.replace("fa-volume-high", "fa-volume-xmark");
