@@ -4,7 +4,7 @@ var MaxNumber = 0;
 var numberDisplay = document.getElementById("number-display");
 var drums = document.getElementById("audioDrums");
 var pop = document.getElementById("audioPop");
-
+var isClickable = true;
 var roll = document.querySelector("#buzzer");
 roll.classList.add("roll-btn-hide");
 function startGame() {
@@ -27,7 +27,12 @@ function generateRandomNumber() {
 
 // Generate a new number and display it
 function generateNumber() {
+  if (!isClickable) {
+    return;
+  }
+  isClickable = false;
   drums.play();
+
   roll.src = "images/BTNPRESSED.png";
   document.querySelector("*").style.cursor = "wait";
   // roll.classList.remove("roll-btn-show");
@@ -82,8 +87,8 @@ function generateNumber() {
     numberDisplay.classList.remove("show");
     pop.play();
     roll.src = "images/BTN.png";
-
     document.querySelector("*").style.cursor = "default";
+    isClickable = true;
   }, 5000);
 }
 
