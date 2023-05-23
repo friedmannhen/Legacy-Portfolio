@@ -27,18 +27,11 @@
         <output>90</output>
         <button onclick="startGame()" class="btn btn-primary btn-lg btn-block">Start</button>
     </div>
-    <div class="row">
-        <div class="col">
-            <div id="number-list"></div>
-        </div>
-        <div class="col numAndBut">
-            <div id="number-display"></div>
-            <!-- <img src="images/buzzer.png" id="buzzer" onclick="generateNumber()" /> -->
-            <img src="images/thumbnail_REALESED.png" id="buzzer" onclick="generateNumber()" />
-
-        </div>
-        <div class="col">
-        </div>
+    <div id="number-list"></div>
+    <div class="numAndBut">
+        <div id="number-display"></div>
+        <!-- <img src="images/buzzer.png" id="buzzer" onclick="generateNumber()" /> -->
+        <img src="images/thumbnail_REALESED.png" id="buzzer" onclick="generateNumber()" />
     </div>
     <div id="circle" class="circle"></div>
     <button onclick="resetGame()" class="btn btn-outline-primary btn-lg btn-block reset">Reset</button>
@@ -51,4 +44,5 @@
     <i id="mute" class="fa-solid fa-volume-high" onclick="mute();"></i>
 </body>
 <script src="app.js"></script>
+
 </html>

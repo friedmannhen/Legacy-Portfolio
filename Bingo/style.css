@@ -55,8 +55,8 @@ body {
   background-color: #ffe00f;
   border-radius: 50%;
   border: 2px solid #10478c;
-  width: 600px;
-  height: 600px;
+  width: 33vw;
+  height: 70vh;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 20px 10px inset;
@@ -66,16 +66,22 @@ body {
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
+  width: 550px;
+  height: 500px;
+  max-width: fit-content;
   padding-left: 20px;
+  position:absolute;
+  left: 10px;
+  top:120px;
 }
 .number {
-  overflow: hidden;
   display: block;
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 50%;
-  min-width: 50px;
-  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
   margin: 4px;
   display: flex;
   align-items: center;
@@ -124,10 +130,11 @@ button {
 }
 .numAndBut{
   display: flex;
-  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: 35vw
 }
 #buzzer {
   position: absolute;
@@ -344,4 +351,28 @@ body .air.air4 {
   margin-left: -20px;
   pointer-events: none;
   z-index: 10;
+}
+
+
+@media only screen and (max-width:1400px) {
+  #number-list {
+    width: 420px;
+   height: 650px;
+  }
+  .number{
+    width: 35px;
+    height: 35px;
+    font-size: 1.5em;
+  }
+
+@media only screen and (max-width:1000px) {
+  #number-list {
+    width: 300px;
+   height: 350px;
+  }
+  .number{
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
+  }
 }
