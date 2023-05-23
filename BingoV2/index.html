@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,19 +20,24 @@
         <img class="Iscar_Logo" src="images/Iscar_Logo.png">
         <img class="It_logo" src="images/It_Logo.png">
     </div>
-    <div id="rules">
-        <input type="range" id="max" value="90" min="1" max="100" oninput="this.nextElementSibling.value = this.value"
-            placeholder="Max Number" />
-        <output>90</output>
-        <button onclick="startGame()" class="btn btn-primary btn-lg btn-block">Start</button>
-    </div>
     <div class="main">
-        <div id="number-list"></div>
-            <div id="number-display"></div>
+        <div id="number-list">
+            <div id="rules">
+                <input type="range" id="max" value="90" min="1" max="100"
+                    oninput="this.nextElementSibling.value = this.value" placeholder="Max Number" />
+                <output>90</output>
+                <button onclick="startGame()" class="btn btn-primary btn-lg btn-block">Start</button>
+            </div>
+
         </div>
-        <img src="images/BTN.png" id="buzzer" onclick="generateNumber()" />
+        <div id="number-display">
+            <img id="ball" src="images/BALL.png">
+            <div id="runningNumber"></div>
+        </div>
+    </div>
+    <img src="images/BTN.png" id="buzzer" onclick="generateNumber()" />
     <div id="circle" class="circle"></div>
-    <button onclick="resetGame()" class="btn btn-outline-primary btn-lg btn-block reset">Reset</button>
+    <button onclick="resetGame()" class="btn btn-outline-light btn-lg btn-block reset">Reset</button>
     <div class='air air1'></div>
     <div class='air air2'></div>
     <div class='air air3'></div>

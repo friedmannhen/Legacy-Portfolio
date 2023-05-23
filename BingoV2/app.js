@@ -6,17 +6,20 @@ var drums = document.getElementById("audioDrums");
 var pop = document.getElementById("audioPop");
 var isClickable = true;
 var roll = document.querySelector("#buzzer");
+var rules = document.getElementById("rules")
+var runningNumber = document.getElementById("runningNumber")
+
 roll.classList.add("roll-btn-hide");
+var numberList = document.getElementById("number-list");
 function startGame() {
   MaxNumber = document.getElementById("max").value;
   for (let i = 1; i < parseInt(MaxNumber) + 1; i++) {
-    var numberList = document.getElementById("number-list");
     var numberElement = document.createElement("div");
     numberElement.className = "number";
     numberElement.textContent = i;
     numberList.appendChild(numberElement);
   }
-  document.getElementById("rules").classList.add("roll-btn-hide");
+  rules.classList.add("roll-btn-hide");
   roll.classList.remove("roll-btn-hide");
   roll.classList.add("roll-btn-show");
 }
@@ -56,7 +59,7 @@ function generateNumber() {
       return;
     }
     // Display the number
-    numberDisplay.textContent = number;
+    runningNumber.textContent = number;
   }, 70); // Display a new number every x second
   // Stop displaying random numbers after 5 seconds
   setTimeout(function () {
@@ -76,7 +79,7 @@ function generateNumber() {
     }
     // Add the number to the picked numbers array
     pickedNumbers.push(number);
-    numberDisplay.textContent = number;
+    runningNumber.textContent = number;
     var pickedNumber = document.querySelectorAll(".number");
     pickedNumber[number - 1].classList.add("selected");
     // Enable generate number button after displaying chosen number
@@ -95,8 +98,8 @@ function generateNumber() {
 // Reset the game
 function resetGame() {
   roll.classList.add("roll-btn-hide");
-  document.getElementById("rules").classList.remove("roll-btn-hide");
-  document.getElementById("rules").classList.add("roll-btn-show");
+  rules.classList.remove("roll-btn-hide");
+  rules.classList.add("roll-btn-show");
 
   // Clear the picked numbers array
   pickedNumbers = [];
@@ -106,7 +109,11 @@ function resetGame() {
 
   // Clear the picked numbers list
   var numberList = document.getElementById("number-list");
-  numberList.innerHTML = "";
+  var elements = numberList.getElementsByClassName("number");
+
+  while (elements[0]) {
+    elements[0].parentNode.removeChild(elements[0]);
+  }
 }
 
 // cursour animation
@@ -123,17 +130,15 @@ var circle = document.getElementById("circle");
 
 // set handler on kinet tick event
 kinet.on("tick", function (instances) {
-  circle.style.transform = `translate3d(${instances.x.current}px, ${
-    instances.y.current
-  }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${
-    instances.y.velocity / 2
-  }deg)`;
+  circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current
+    }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${instances.y.velocity / 2
+    }deg)`;
 });
 
 // call kinet animate method on mousemove
 document.addEventListener("mousemove", function (event) {
   kinet.animate("x", event.clientX - window.innerWidth / 2);
-  kinet.animate("y", event.clientY - window.innerHeight / 2 - 20);
+  kinet.animate("y", event.clientY - window.innerHeight / 2 - 30);
 });
 
 var mutebtn = document.getElementById("mute");
