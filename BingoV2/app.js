@@ -8,6 +8,25 @@ var isClickable = true;
 var roll = document.querySelector("#buzzer");
 var rules = document.getElementById("rules")
 var runningNumber = document.getElementById("runningNumber")
+var rotateIcon = document.querySelector(".fa-arrows-rotate");
+var muteIcon = document.querySelector("#mute");
+
+rotateIcon.addEventListener("mouseover", function() {
+  rotateIcon.classList.add("fa-spin");
+});
+
+// Remove class when not hovered
+rotateIcon.addEventListener("mouseout", function() {
+  rotateIcon.classList.remove("fa-spin");
+});
+muteIcon.addEventListener("mouseover", function() {
+  muteIcon.classList.add("fa-beat");
+});
+
+// Remove class when not hovered
+muteIcon.addEventListener("mouseout", function() {
+  muteIcon.classList.remove("fa-beat");
+});
 
 roll.classList.add("roll-btn-hide");
 var numberList = document.getElementById("number-list");
@@ -41,7 +60,7 @@ function generateNumber() {
   // roll.classList.remove("roll-btn-show");
   // roll.classList.add("roll-btn-hide");
   numberDisplay.classList.add("show");
-  document.querySelector(".reset").disabled = true;
+  document.querySelector("#reset").disabled = true;
   // Check if all numbers have been picked
 
   // Disable generate number button during animation
@@ -84,7 +103,7 @@ function generateNumber() {
     pickedNumber[number - 1].classList.add("selected");
     // Enable generate number button after displaying chosen number
     generateButton.disabled = false;
-    document.querySelector(".reset").disabled = false;
+    document.querySelector("#reset").disabled = false;
     roll.classList.remove("roll-btn-hide");
     roll.classList.add("roll-btn-show");
     numberDisplay.classList.remove("show");
@@ -105,7 +124,7 @@ function resetGame() {
   pickedNumbers = [];
 
   // Clear the number display
-  numberDisplay.textContent = "";
+  runningNumber.textContent = "";
 
   // Clear the picked numbers list
   var numberList = document.getElementById("number-list");

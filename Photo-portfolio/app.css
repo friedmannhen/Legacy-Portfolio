@@ -42,7 +42,7 @@ nav {
 
 #home-button {
   display: inline-block;
-  background-image: url(https://iconape.com/wp-content/files/wa/66713/svg/hf.svg);
+  background-image: url(/hf.svg);
   background-size: cover;
   /* display: inline-block; */
   width: 35px;

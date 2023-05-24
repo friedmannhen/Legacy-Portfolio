@@ -116,7 +116,7 @@ img {
 }
 
 #home-button {
-  background-image: url(https://iconape.com/wp-content/files/wa/66713/svg/hf.svg);
+  background-image: url(/hf.svg);
   background-size: cover;
   position: absolute;
   top: 30px;
