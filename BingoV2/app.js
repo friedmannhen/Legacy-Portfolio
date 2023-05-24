@@ -6,25 +6,25 @@ var drums = document.getElementById("audioDrums");
 var pop = document.getElementById("audioPop");
 var isClickable = true;
 var roll = document.querySelector("#buzzer");
-var rules = document.getElementById("rules")
-var runningNumber = document.getElementById("runningNumber")
+var rules = document.getElementById("rules");
+var runningNumber = document.getElementById("runningNumber");
 var rotateIcon = document.querySelector(".fa-arrows-rotate");
 var muteIcon = document.querySelector("#mute");
 
-rotateIcon.addEventListener("mouseover", function() {
+rotateIcon.addEventListener("mouseover", function () {
   rotateIcon.classList.add("fa-spin");
 });
 
 // Remove class when not hovered
-rotateIcon.addEventListener("mouseout", function() {
+rotateIcon.addEventListener("mouseout", function () {
   rotateIcon.classList.remove("fa-spin");
 });
-muteIcon.addEventListener("mouseover", function() {
+muteIcon.addEventListener("mouseover", function () {
   muteIcon.classList.add("fa-beat");
 });
 
 // Remove class when not hovered
-muteIcon.addEventListener("mouseout", function() {
+muteIcon.addEventListener("mouseout", function () {
   muteIcon.classList.remove("fa-beat");
 });
 
@@ -57,8 +57,6 @@ function generateNumber() {
 
   roll.src = "images/BTNPRESSED.png";
   document.querySelector("*").style.cursor = "wait";
-  // roll.classList.remove("roll-btn-show");
-  // roll.classList.add("roll-btn-hide");
   numberDisplay.classList.add("show");
   document.querySelector("#reset").disabled = true;
   // Check if all numbers have been picked
@@ -74,27 +72,33 @@ function generateNumber() {
     var number = generateRandomNumber();
 
     // Check if the number has already been picked
-    if (pickedNumbers.includes(number)) {
-      return;
-    }
+    // if (pickedNumbers.includes(number)) {          // maybe will returne
+    //   return;
+    // }
     // Display the number
     runningNumber.textContent = number;
   }, 70); // Display a new number every x second
   // Stop displaying random numbers after 5 seconds
   setTimeout(function () {
     clearInterval(interval);
-
+    
     // Generate a new number
-    if (pickedNumbers.length === MaxNumber - 1) {
-      alert("All numbers have been picked!");
-      return;
-    }
+    
     var number = generateRandomNumber();
-
+    
     // Check if the number has already been picked
-    if (pickedNumbers.includes(number)) {
-      generateNumber(); // Generate another number if already picked
-      return;
+    while (pickedNumbers.includes(number)) {
+      number = generateRandomNumber();
+      // generateNumber(); // Generate another number if already picked
+      // return;
+    }
+    if (pickedNumbers.length === MaxNumber - 1) {
+      isClickable = false;
+      roll.classList.remove("roll-btn-show");
+      roll.classList.add("roll-btn-hide");
+      document.querySelector("#reset").disabled = false;
+      document.querySelector("*").style.cursor = "default";
+      alert("All numbers have been picked!");
     }
     // Add the number to the picked numbers array
     pickedNumbers.push(number);
@@ -104,14 +108,13 @@ function generateNumber() {
     // Enable generate number button after displaying chosen number
     generateButton.disabled = false;
     document.querySelector("#reset").disabled = false;
-    roll.classList.remove("roll-btn-hide");
-    roll.classList.add("roll-btn-show");
     numberDisplay.classList.remove("show");
     pop.play();
     roll.src = "images/BTN.png";
     document.querySelector("*").style.cursor = "default";
     isClickable = true;
   }, 5000);
+  
 }
 
 // Reset the game
@@ -122,11 +125,13 @@ function resetGame() {
 
   // Clear the picked numbers array
   pickedNumbers = [];
-
   // Clear the number display
   runningNumber.textContent = "";
-
   // Clear the picked numbers list
+  clearNumList();
+}
+
+function clearNumList() {
   var numberList = document.getElementById("number-list");
   var elements = numberList.getElementsByClassName("number");
 
@@ -134,7 +139,6 @@ function resetGame() {
     elements[0].parentNode.removeChild(elements[0]);
   }
 }
-
 // cursour animation
 
 // create instance of kinet with custom settings
@@ -149,9 +153,11 @@ var circle = document.getElementById("circle");
 
 // set handler on kinet tick event
 kinet.on("tick", function (instances) {
-  circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current
-    }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${instances.y.velocity / 2
-    }deg)`;
+  circle.style.transform = `translate3d(${instances.x.current}px, ${
+    instances.y.current
+  }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${
+    instances.y.velocity / 2
+  }deg)`;
 });
 
 // call kinet animate method on mousemove

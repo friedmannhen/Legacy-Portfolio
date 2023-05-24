@@ -24,7 +24,7 @@
         <div id="number-list">
             <div id="rules">
                 <input type="range" id="max" value="90" min="1" max="100"
-                    oninput="this.nextElementSibling.value = this.value" placeholder="Max Number" />
+                    oninput="this.nextElementSibling.value = this.value"  />
                 <output>90</output>
                 <button onclick="startGame()" class="btn btn-primary btn-lg btn-block">Start</button>
             </div>
@@ -43,8 +43,8 @@
     <div class='air air4'></div>
     <audio id="audioDrums" src="bingo-lottery-balls-sound-.mp3"></audio>
     <audio id="audioPop" src="pop.mp3"></audio>
-    <button id="reset">
-        <i onclick="resetGame()" class="fa-solid fa-arrows-rotate"></i>
+    <button id="reset" onclick="resetGame()">
+        <i  class="fa-solid fa-arrows-rotate"></i>
     </button>
     <i id="mute" class="fa-solid fa-volume-high" onclick="mute();"></i>
 </body>
