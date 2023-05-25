@@ -4,13 +4,15 @@ var MaxNumber = 0;
 var numberDisplay = document.getElementById("number-display");
 var drums = document.getElementById("audioDrums");
 var pop = document.getElementById("audioPop");
-var isClickable = true;
+var isClickable = false;
 var roll = document.querySelector("#buzzer");
 var rules = document.getElementById("rules");
 var runningNumber = document.getElementById("runningNumber");
 var rotateIcon = document.querySelector(".fa-arrows-rotate");
 var muteIcon = document.querySelector("#mute");
 var overlay = document.querySelector("#overlay");
+var bingo = document.querySelector("#bingo");
+
 rotateIcon.addEventListener("mouseover", function () {
   rotateIcon.classList.add("fa-spin");
 });
@@ -31,6 +33,7 @@ muteIcon.addEventListener("mouseout", function () {
 roll.classList.add("roll-btn-hide");
 var numberList = document.getElementById("number-list");
 function startGame() {
+  isClickable = true;
   MaxNumber = document.getElementById("max").value;
   for (let i = 1; i < parseInt(MaxNumber) + 1; i++) {
     var numberElement = document.createElement("div");
@@ -81,11 +84,11 @@ function generateNumber() {
   // Stop displaying random numbers after 5 seconds
   setTimeout(function () {
     clearInterval(interval);
-    
+
     // Generate a new number
-    
+
     var number = generateRandomNumber();
-    
+
     // Check if the number has already been picked
     while (pickedNumbers.includes(number)) {
       number = generateRandomNumber();
@@ -114,21 +117,18 @@ function generateNumber() {
     document.querySelector("*").style.cursor = "default";
     isClickable = true;
   }, 5000);
-  
+
 }
 
 function resetGame() {
   roll.classList.add("roll-btn-hide");
   rules.classList.remove("roll-btn-hide");
   rules.classList.add("roll-btn-show");
-  console.log(overlay);
-
-  overlay.style.display = "none"; 
-  console.log(overlay);
-
+  overlay.classList.remove("active");
   pickedNumbers = [];
   runningNumber.textContent = "";
   clearNumList();
+  isClickable = false;
   console.log("Reset Complete")
 }
 
@@ -141,13 +141,33 @@ function clearNumList() {
   }
 }
 
-document.addEventListener("keydown", function(event) {
-  if (event.code === "Space") {
-      overlay.style.display = "flex";
-      overlay.style.transform = "scale(1)"
+document.addEventListener("keydown", function (event) {
+  if (event.code === "KeyW") {
+    overlay.classList.add("active");
+    bingo.classList.remove("scale-active");
+    setTimeout(function () {
+      bingo.classList.add("scale-active");
+    }, 10);
   }
 });
 
+document.addEventListener("keydown", function (event) {
+  if (!isClickable) {
+    return;
+  }
+  if (event.code === "Space") {
+    generateNumber()
+  }
+});
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Escape") {
+    overlay.classList.remove("active");
+    bingo.classList.remove("scale-active");
+    setTimeout(function () {
+      bingo.classList.add("scale-active");
+    }, 10);
+  }
+});
 // cursor animation
 // create instance of kinet with custom settings
 var kinet = new Kinet({
@@ -159,11 +179,9 @@ var kinet = new Kinet({
 // set handler on kinet tick event
 var circle = document.getElementById("circle");
 kinet.on("tick", function (instances) {
-  circle.style.transform = `translate3d(${instances.x.current}px, ${
-    instances.y.current
-  }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${
-    instances.y.velocity / 2
-  }deg)`;
+  circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current
+    }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${instances.y.velocity / 2
+    }deg)`;
 });
 
 // call kinet animate method on mousemove

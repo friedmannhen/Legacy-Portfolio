@@ -24,7 +24,6 @@ body {
   position: absolute;
   top: 0;
   left: 30vw;
-  z-index: 100;
 }
 
 .Iscar_Logo,
@@ -68,7 +67,7 @@ body {
   align-items: center;
   margin: 3px;
   width: 8.5%;
-  height:10%;
+  height: 10%;
   overflow: hidden;
   font-weight: bold;
   font-size: 3.4vh;
@@ -165,9 +164,12 @@ button {
   transform: scale(0);
   transition: 0.5s ease-in-out;
 }
-#mute , #reset{
+
+#mute,
+#reset {
   transition: 0.5s all;
 }
+
 #mute {
   position: fixed;
   cursor: pointer;
@@ -189,7 +191,8 @@ button {
 
 }
 
-#mute:hover , #reset:hover  {
+#mute:hover,
+#reset:hover {
   z-index: 1000;
   transform: scale(1.5);
   color: #ffe00f;
@@ -211,7 +214,8 @@ button {
   width: 10vw;
   border: 1px solid grey;
 }
-output{
+
+output {
   color: white;
   font-size: 5vh;
   -webkit-text-stroke: black 1px;
@@ -220,38 +224,48 @@ output{
 
 
 /* PopUp screen */
-     .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.4);
-            display: none ;
-            transform: scale(0);
-            align-items: center;
-            justify-content: center;
-            transition:  background-color 2s, scale 2s;
-            animation: heartbeat 1s infinite;
-        }
-#bingo{
-  padding: 100px;
-  width: 50vw;
-  height: 90vh;
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  animation: heartbeat 1s infinite;
+
 }
+
+.overlay.active {
+  display: flex;
+}
+
+#bingo {
+  width: 50%;
+  transform: scale(0);
+  transition: transform 1.5s;
+}
+
+#bingo.scale-active {
+  transform: scale(1);
+}
+
 @keyframes heartbeat {
   0% {
     transform: scale(1);
   }
-  
+
   50% {
     transform: scale(1.02);
   }
-  
+
   100% {
     transform: scale(1);
   }
 }
+
 /* background Waves*/
 
 body .air {
