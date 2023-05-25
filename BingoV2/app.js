@@ -10,7 +10,7 @@ var rules = document.getElementById("rules");
 var runningNumber = document.getElementById("runningNumber");
 var rotateIcon = document.querySelector(".fa-arrows-rotate");
 var muteIcon = document.querySelector("#mute");
-
+var overlay = document.querySelector("#overlay");
 rotateIcon.addEventListener("mouseover", function () {
   rotateIcon.classList.add("fa-spin");
 });
@@ -117,18 +117,19 @@ function generateNumber() {
   
 }
 
-// Reset the game
 function resetGame() {
   roll.classList.add("roll-btn-hide");
   rules.classList.remove("roll-btn-hide");
   rules.classList.add("roll-btn-show");
+  console.log(overlay);
 
-  // Clear the picked numbers array
+  overlay.style.display = "none"; 
+  console.log(overlay);
+
   pickedNumbers = [];
-  // Clear the number display
   runningNumber.textContent = "";
-  // Clear the picked numbers list
   clearNumList();
+  console.log("Reset Complete")
 }
 
 function clearNumList() {
@@ -139,8 +140,15 @@ function clearNumList() {
     elements[0].parentNode.removeChild(elements[0]);
   }
 }
-// cursour animation
 
+document.addEventListener("keydown", function(event) {
+  if (event.code === "Space") {
+      overlay.style.display = "flex";
+      overlay.style.transform = "scale(1)"
+  }
+});
+
+// cursor animation
 // create instance of kinet with custom settings
 var kinet = new Kinet({
   acceleration: 0.1,
@@ -148,10 +156,8 @@ var kinet = new Kinet({
   names: ["x", "y"],
 });
 
-// select circle element
-var circle = document.getElementById("circle");
-
 // set handler on kinet tick event
+var circle = document.getElementById("circle");
 kinet.on("tick", function (instances) {
   circle.style.transform = `translate3d(${instances.x.current}px, ${
     instances.y.current
@@ -177,3 +183,4 @@ function mute() {
     mutebtn.classList.replace("fa-volume-xmark", "fa-volume-high");
   }
 }
+
