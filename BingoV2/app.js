@@ -168,28 +168,6 @@ document.addEventListener("keydown", function (event) {
     }, 10);
   }
 });
-// cursor animation
-// create instance of kinet with custom settings
-var kinet = new Kinet({
-  acceleration: 0.1,
-  friction: 0.15,
-  names: ["x", "y"],
-});
-
-// set handler on kinet tick event
-var circle = document.getElementById("circle");
-kinet.on("tick", function (instances) {
-  circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current
-    }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${instances.y.velocity / 2
-    }deg)`;
-});
-
-// call kinet animate method on mousemove
-document.addEventListener("mousemove", function (event) {
-  kinet.animate("x", event.clientX - window.innerWidth / 2);
-  kinet.animate("y", event.clientY - window.innerHeight / 2 - 30);
-});
-
 var mutebtn = document.getElementById("mute");
 function mute() {
   drums.muted = !drums.muted;
@@ -201,4 +179,27 @@ function mute() {
     mutebtn.classList.replace("fa-volume-xmark", "fa-volume-high");
   }
 }
+// cursor animation
+// // create instance of kinet with custom settings
+// var kinet = new Kinet({
+//   acceleration: 0.1,
+//   friction: 0.15,
+//   names: ["x", "y"],
+// });
+
+// // set handler on kinet tick event
+// var circle = document.getElementById("circle");
+// kinet.on("tick", function (instances) {
+//   circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current
+//     }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${instances.y.velocity / 2
+//     }deg)`;
+// });
+
+// // call kinet animate method on mousemove
+// document.addEventListener("mousemove", function (event) {
+//   kinet.animate("x", event.clientX - window.innerWidth / 2);
+//   kinet.animate("y", event.clientY - window.innerHeight / 2 - 30);
+// });
+
+
 

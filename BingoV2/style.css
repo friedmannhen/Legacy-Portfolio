@@ -1,7 +1,7 @@
-/* @font-face {
+@font-face {
   font-family: 'TitanOne';
   src: url('./fonts/TitanOne-Regular.ttf') format('truetype');
-} */
+}
 
 body {
   height: 100vh;
@@ -194,11 +194,12 @@ button {
 #mute:hover,
 #reset:hover {
   z-index: 1000;
-  transform: scale(1.5);
+  transform: scale(1.4);
   color: #ffe00f;
 }
 
 #rules {
+  font-family: cursive;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -216,9 +217,9 @@ button {
 }
 
 output {
-  color: white;
+  color: #10478c;
   font-size: 5vh;
-  -webkit-text-stroke: black 1px;
+  -webkit-text-stroke: #fff 1px;
 }
 
 
@@ -431,39 +432,43 @@ body .air.air4 {
   z-index: 10;
 }
 
-/* 
-
-@media only screen and (max-width:1400px) {
-  #number-list {
-    width: 420px;
-    height: 650px;
-  }
-  .number{
-    width: 35px;
-    height: 35px;
-    font-size: 1.5em;
-  }
+#info {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
 }
-@media only screen and (max-width:1000px) {
-  #number-list {
-    width: 300px;
-    height: 350px;
-  }
-  .number{
-    width: 30px;
-    height: 30px;
-    font-size: 1em;
-  } 
- }
 
- @media only screen and (max-width:1000px) {
-    #number-list {
-      width: 300px;
-     height: 350px;
-    }
-    .number{
-      width: 30px;
-      height: 30px;
-      font-size: 1em;
-    }
-} */
+
+#popupContainer {
+  border-radius: 10px;
+  position: fixed;
+  bottom: 60px;
+  right: 40px;
+  color: white;
+  background-color: #10488cad;
+  box-shadow: #fff 0px 0px 15px, #10478c 0px 0px 5px inset;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+
+#info:hover #popupContainer {
+  transform: scale(1);
+}
+
+h4 {
+  font-family: TitanOne;
+  text-align: center;
+  background-color: #00a1fe7e;
+  border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-top: 2px;
+  border-bottom: #10478c 1px solid;
+}
+
+p {
+  padding: 10px;
+  font-family: cursive;
+}

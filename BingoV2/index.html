@@ -11,10 +11,12 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c6ebfc089c.js" crossorigin="anonymous"></script>
-    <script src="./kinet-master/dist/kinet.js"></script>
+    <!-- <script src="./kinet-master/dist/kinet.js"></script> -->
 </head>
 
 <body>
+    <!-- <div id="circle" class="circle"></div> -->
+
     <img class="title_img" src="images/HEADER.png">
     <div class="logos">
         <img class="Iscar_Logo" src="images/Iscar_Logo.png">
@@ -36,7 +38,6 @@
         </div>
     </div>
     <img src="images/BTN.png" id="buzzer" onclick="generateNumber()" />
-    <div id="circle" class="circle"></div>
     <div class='air air1'></div>
     <div class='air air2'></div>
     <div class='air air3'></div>
@@ -48,10 +49,24 @@
     </button>
     <i id="mute" class="fa-solid fa-volume-high" onclick="mute();"></i>
 
+    <div id="info">
+        <i class="fa-solid fa-circle-info fa-xl"></i>
+        <div id="popupContainer">
+            <h4>Help!</h4>
+            <p>- Select max number and press <b>'Start'</b>.<br>
+                - Press <b>'Space'</b> to Roll a number!<br>
+                &nbsp;&nbsp;Or <b>left Click</b> the <b>Red Button</b>.<br>
+                - Press <b>'W'</b> to Popup Bingo!<br>
+                - press <b>'Escape'</b> to remove it.<br>
+                - Reset / Mute the game <br>&nbsp;&nbspby clicking the top right icons.
+            </p>
+        </div>
+    </div>
 
     <div id="overlay" class="overlay">
         <img id="bingo" src="images/BINGO.png">
     </div>
+
 
 </body>
 <script src="app.js"></script>
