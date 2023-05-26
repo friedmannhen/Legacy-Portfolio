@@ -12,26 +12,23 @@ var rotateIcon = document.querySelector(".fa-arrows-rotate");
 var muteIcon = document.querySelector("#mute");
 var overlay = document.querySelector("#overlay");
 var bingo = document.querySelector("#bingo");
+var numberList = document.getElementById("number-list");
 
+//mute and reset mouse hover
 rotateIcon.addEventListener("mouseover", function () {
   rotateIcon.classList.add("fa-spin");
 });
-
-// Remove class when not hovered
 rotateIcon.addEventListener("mouseout", function () {
   rotateIcon.classList.remove("fa-spin");
 });
 muteIcon.addEventListener("mouseover", function () {
   muteIcon.classList.add("fa-beat");
 });
-
-// Remove class when not hovered
 muteIcon.addEventListener("mouseout", function () {
   muteIcon.classList.remove("fa-beat");
 });
 
 roll.classList.add("roll-btn-hide");
-var numberList = document.getElementById("number-list");
 function startGame() {
   isClickable = true;
   MaxNumber = document.getElementById("max").value;

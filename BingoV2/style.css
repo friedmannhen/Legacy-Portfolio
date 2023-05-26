@@ -13,8 +13,8 @@ body {
 }
 
 .logos {
-  margin-top: 15px;
-  margin-left: 15px;
+  padding-top: 15PX;
+  padding-left: 15px;
   height: 20vh;
 }
 
@@ -22,7 +22,7 @@ body {
   width: 40vw;
   height: 17vh;
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 30vw;
 }
 
@@ -44,7 +44,6 @@ body {
   padding-inline: 5vw;
   height: 65vh;
   width: 100vw;
-  transform: translateX(-50px);
 }
 
 #number-list {
@@ -146,8 +145,8 @@ button {
 #buzzer {
   position: absolute;
   aspect-ratio: 1/1;
-  bottom: 35px;
-  left: calc(50% - 3vw);
+  bottom: 30px;
+  left: calc(50% - 1vw);
   width: 6vw;
   height: 10vh;
   border-radius: 50%;
@@ -207,7 +206,6 @@ button {
   width: 20vw;
   top: 50%;
   left: calc(50% - 150px);
-  z-index: 20;
 }
 
 #max {
@@ -294,7 +292,7 @@ body .air.air2 {
   animation: wave2 15s linear infinite;
   z-index: -2;
   animation-delay: -5s;
-  bottom: 10px;
+  bottom: -20px;
   opacity: 0.6;
 }
 
@@ -303,7 +301,7 @@ body .air.air3 {
   z-index: -3;
   opacity: 0.2;
   animation-delay: -2s;
-  bottom: 15px;
+  bottom: -15px;
   opacity: 0.5;
 }
 
@@ -312,7 +310,7 @@ body .air.air4 {
   z-index: -4;
   opacity: 0.2;
   animation-delay: -5s;
-  bottom: 20px;
+  bottom: -10px;
 }
 
 @keyframes wave {
@@ -437,16 +435,18 @@ body .air.air4 {
   bottom: 15px;
   right: 15px;
   cursor: pointer;
+  z-index: 1000;
+
 }
 
 
 #popupContainer {
   border-radius: 10px;
   position: fixed;
-  bottom: 60px;
-  right: 40px;
+  bottom: 50px;
+  right: 45px;
   color: white;
-  background-color: #10488cad;
+  background-color: #10488cc2;
   box-shadow: #fff 0px 0px 15px, #10478c 0px 0px 5px inset;
   transform: scale(0);
   transition: transform 0.3s;
@@ -456,16 +456,18 @@ body .air.air4 {
   transform: scale(1);
 }
 
+
 h4 {
   font-family: TitanOne;
   text-align: center;
-  background-color: #00a1fe7e;
+  background-color: #00a1fea8;
   border-top-left-radius: 10px;
   border-top-left-radius: 10px;
   padding-bottom: 2px;
   padding-top: 2px;
   padding-top: 2px;
-  border-bottom: #10478c 1px solid;
+  border-bottom: #06499a 1px solid;
+  -webkit-text-stroke: 1px black;
 }
 
 p {
