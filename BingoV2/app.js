@@ -114,9 +114,8 @@ function generateNumber() {
     pop.play();
     roll.src = "images/BTN.png";
     document.querySelector("*").style.cursor = "default";
-    isClickable = true;
+    if (pickedNumbers.length != MaxNumber) isClickable = true;
   }, 5000);
-
 }
 
 function resetGame() {
@@ -128,7 +127,7 @@ function resetGame() {
   runningNumber.textContent = "";
   clearNumList();
   isClickable = false;
-  console.log("Reset Complete")
+  console.log("Reset Complete");
 }
 
 function clearNumList() {
@@ -156,7 +155,7 @@ document.addEventListener("keydown", function (event) {
     return;
   }
   if (event.code === "Space") {
-    generateNumber()
+    generateNumber();
   }
 });
 document.addEventListener("keydown", function (event) {
@@ -200,6 +199,3 @@ function mute() {
 //   kinet.animate("x", event.clientX - window.innerWidth / 2);
 //   kinet.animate("y", event.clientY - window.innerHeight / 2 - 30);
 // });
-
-
-
