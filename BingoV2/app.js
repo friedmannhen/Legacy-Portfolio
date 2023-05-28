@@ -115,7 +115,7 @@ function generateNumber() {
     roll.src = "images/BTN.png";
     document.querySelector("*").style.cursor = "default";
     if (pickedNumbers.length != MaxNumber) isClickable = true;
-  }, 5000);
+  }, 4500);
 }
 
 function resetGame() {
@@ -171,6 +171,7 @@ var mutebtn = document.getElementById("mute");
 function mute() {
   drums.muted = !drums.muted;
   pop.muted = !pop.muted;
+  winning.muted = !winning.muted;
 
   if (drums.muted && pop.muted) {
     mutebtn.classList.replace("fa-volume-high", "fa-volume-xmark");
