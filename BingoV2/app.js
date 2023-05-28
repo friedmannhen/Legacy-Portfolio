@@ -4,6 +4,8 @@ var MaxNumber = 0;
 var numberDisplay = document.getElementById("number-display");
 var drums = document.getElementById("audioDrums");
 var pop = document.getElementById("audioPop");
+var winning = document.getElementById("winning");
+
 var isClickable = false;
 var roll = document.querySelector("#buzzer");
 var rules = document.getElementById("rules");
@@ -140,6 +142,7 @@ function clearNumList() {
 
 document.addEventListener("keydown", function (event) {
   if (event.code === "KeyW") {
+    winning.play();
     overlay.classList.add("active");
     bingo.classList.remove("scale-active");
     setTimeout(function () {
