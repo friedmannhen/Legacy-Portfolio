@@ -55,7 +55,6 @@ function generateNumber() {
     return;
   }
   isClickable = false;
-  drums.play();
 
   roll.src = "images/BTNPRESSED.png";
   document.querySelector("*").style.cursor = "wait";
@@ -66,6 +65,7 @@ function generateNumber() {
   // Disable generate number button during animation
   var generateButton = document.querySelector("button");
   generateButton.disabled = true;
+  drums.play();
 
   // Start displaying random numbers
   var startTime = Date.now();
@@ -83,16 +83,12 @@ function generateNumber() {
   // Stop displaying random numbers after 5 seconds
   setTimeout(function () {
     clearInterval(interval);
-
-    // Generate a new number
-
+    drums.pause();
+    drums.currentTime = 0;
     var number = generateRandomNumber();
 
-    // Check if the number has already been picked
     while (pickedNumbers.includes(number)) {
       number = generateRandomNumber();
-      // generateNumber(); // Generate another number if already picked
-      // return;
     }
     if (pickedNumbers.length === MaxNumber - 1) {
       isClickable = false;
@@ -100,7 +96,7 @@ function generateNumber() {
       roll.classList.add("roll-btn-hide");
       document.querySelector("#reset").disabled = false;
       document.querySelector("*").style.cursor = "default";
-      alert("All numbers have been picked!");
+      alert("All numbers have been picked!\npress reset to play again...");
     }
     // Add the number to the picked numbers array
     pickedNumbers.push(number);
@@ -119,6 +115,8 @@ function generateNumber() {
 }
 
 function resetGame() {
+  winning.pause();
+  winning.currentTime = 0;
   roll.classList.add("roll-btn-hide");
   rules.classList.remove("roll-btn-hide");
   rules.classList.add("roll-btn-show");
@@ -160,8 +158,11 @@ document.addEventListener("keydown", function (event) {
 });
 document.addEventListener("keydown", function (event) {
   if (event.code === "Escape") {
+    winning.pause();
+    winning.currentTime = 0;
     overlay.classList.remove("active");
     bingo.classList.remove("scale-active");
+
     setTimeout(function () {
       bingo.classList.add("scale-active");
     }, 10);
