@@ -6,4 +6,4 @@ I will upload my progres here!
 
 You can find all my mini-projects in this live version here:
 
-[learning Progress Website](https://t-hen.netlify.app/)
+[learning Progress Website](https://friedmann.netlify.app/)
